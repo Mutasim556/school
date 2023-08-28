@@ -1,0 +1,24 @@
+
+
+@media (min-width: 575px) {
+    #school-title{
+        padding-right: 250px;
+    }
+    #header-logo{
+        display: none;
+    }
+    #important_links{
+        display: block;
+    }
+}
+@media (max-width: 575px) {
+    #school-logo{
+        display: none;
+    }
+    #school-title{
+        padding-top: 50px;
+    }
+    #important_links{
+        display: none;
+    }
+}
