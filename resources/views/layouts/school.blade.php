@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>{{ env('APP_NAME') }} - Home </title>
+    <title>{{ env('APP_NAME') }} - @yield('title') </title>
     <meta name="author" content="themeholy">
     <meta name="description" content="Edura - Online Courses & Education HTML Template">
     <meta name="keywords" content="Edura - Online Courses & Education HTML Template">
@@ -88,121 +88,52 @@
         </div>
     </div> --}}
     <!--==============================
-    Sidemenu
-============================== -->
-    <div class="sidemenu-wrapper d-none d-lg-block">
-        <div class="sidemenu-content">
-            <button class="closeButton sideMenuCls"><i class="far fa-times"></i></button>
-            <div class="widget woocommerce widget_shopping_cart">
-                <h3 class="widget_title">Shopping cart</h3>
-                <div class="widget_shopping_cart_content">
-                    <ul class="woocommerce-mini-cart cart_list product_list_widget ">
-                        <li class="woocommerce-mini-cart-item mini_cart_item">
-                            <a href="#" class="remove remove_from_cart_button"><i class="far fa-times"></i></a>
-                            <a href="#"><img src="assets/img/product/product_thumb_1_1.jpg" alt="Cart Image">Plastic Book Bags</a>
-                            <span class="quantity">1 ×
-                                <span class="woocommerce-Price-amount amount">
-                                    <span class="woocommerce-Price-currencySymbol">$</span>940.00</span>
-                            </span>
-                        </li>
-                        <li class="woocommerce-mini-cart-item mini_cart_item">
-                            <a href="#" class="remove remove_from_cart_button"><i class="far fa-times"></i></a>
-                            <a href="#"><img src="assets/img/product/product_thumb_1_2.jpg" alt="Cart Image">The Genie Mind</a>
-                            <span class="quantity">1 ×
-                                <span class="woocommerce-Price-amount amount">
-                                    <span class="woocommerce-Price-currencySymbol">$</span>899.00</span>
-                            </span>
-                        </li>
-                        <li class="woocommerce-mini-cart-item mini_cart_item">
-                            <a href="#" class="remove remove_from_cart_button"><i class="far fa-times"></i></a>
-                            <a href="#"><img src="assets/img/product/product_thumb_1_3.jpg" alt="Cart Image">The Energy Book</a>
-                            <span class="quantity">1 ×
-                                <span class="woocommerce-Price-amount amount">
-                                    <span class="woocommerce-Price-currencySymbol">$</span>756.00</span>
-                            </span>
-                        </li>
-                        <li class="woocommerce-mini-cart-item mini_cart_item">
-                            <a href="#" class="remove remove_from_cart_button"><i class="far fa-times"></i></a>
-                            <a href="#"><img src="assets/img/product/product_thumb_1_4.jpg" alt="Cart Image">Pencil Bag</a>
-                            <span class="quantity">1 ×
-                                <span class="woocommerce-Price-amount amount">
-                                    <span class="woocommerce-Price-currencySymbol">$</span>723.00</span>
-                            </span>
-                        </li>
-                        <li class="woocommerce-mini-cart-item mini_cart_item">
-                            <a href="#" class="remove remove_from_cart_button"><i class="far fa-times"></i></a>
-                            <a href="#"><img src="assets/img/product/product_thumb_1_5.jpg" alt="Cart Image">Sharpner</a>
-                            <span class="quantity">1 ×
-                                <span class="woocommerce-Price-amount amount">
-                                    <span class="woocommerce-Price-currencySymbol">$</span>1080.00</span>
-                            </span>
-                        </li>
-                    </ul>
-                    <p class="woocommerce-mini-cart__total total">
-                        <strong>Subtotal:</strong>
-                        <span class="woocommerce-Price-amount amount">
-                            <span class="woocommerce-Price-currencySymbol">$</span>4398.00</span>
-                    </p>
-                    <p class="woocommerce-mini-cart__buttons buttons">
-                        <a href="cart.html" class="th-btn wc-forward">View cart</a>
-                        <a href="checkout.html" class="th-btn checkout wc-forward">Checkout</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="popup-search-box d-none d-lg-block">
-        <button class="searchClose"><i class="fal fa-times"></i></button>
-        <form action="#">
-            <input type="text" placeholder="What are you looking for?">
-            <button type="submit"><i class="fal fa-search"></i></button>
-        </form>
-    </div>
-    <!--==============================
-    Mobile Menu
   ============================== -->
     <div class="th-menu-wrapper">
         <div class="th-menu-area text-center">
             <button class="th-menu-toggle" style="margin-right: 10px;"><i class="fal fa-times"></i></button>
             <div class="mobile-logo py-2 bg-theme">
-                <a href="index.html"><img src="{{ asset($school_contents->school_logo) }}" style="height: 70px;border-radius:50%" alt="{{ env('APP_NAME') }}"></a>
+                <a href="{{ url('/') }}"><img src="{{ asset($school_contents->school_logo) }}" style="height: 70px;border-radius:50%" alt="{{ env('APP_NAME') }}"></a>
             </div>
             <div class="th-mobile-menu">
                 <ul>
                     <li >
-                        <a href="index.html" style="color:#030303">হোম</a>
+                        <a href="/" style="color:#030303">হোম</a>
                         
                     </li>
                     <li class="menu-item-has-children">
                         <a href="#" style="color:#030303">পরিচিতি</a>
                         <ul class="sub-menu">
-                            <li><a href="course.html">এক নজরে পরিচিতি </a></li>
-                            <li><a href="course-details.html">সংক্ষিপ্ত ইতিহাস </a></li>
+                            <li><a href="{{ url('about-school') }}">এক নজরে পরিচিতি </a></li>
+                            {{-- <li><a href="course-details.html">সংক্ষিপ্ত ইতিহাস </a></li> --}}
                         </ul>
                     </li>
                     <li class="menu-item-has-children">
                         <a href="#" style="color:#030303">জনবল </a>
                         <ul class="sub-menu">
-                            <li><a href="course.html">শিক্ষক শিক্ষিকা</a></li>
-                            <li><a href="course-details.html">অন্যান্য কর্মচারী</a></li>
+                            <li><a href="{{ url('school-teachers') }}">শিক্ষক শিক্ষিকা</a></li>
+                            <li><a href="#">অন্যান্য কর্মচারী</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children">
                         <a href="#" style="color:#030303">শিক্ষার্থী</a>
                         <ul class="sub-menu">
-                            <li><a href="course.html">অধ্যয়নরত শিক্ষার্থীর সংখ্যা</a></li>
-                            <li><a href="course-details.html">অধ্যয়নরত শিক্ষার্থীর তলিকা</a></li>
+                            <li><a href="#">অধ্যয়নরত শিক্ষার্থীর সংখ্যা</a></li>
+                            <li><a href="#">অধ্যয়নরত শিক্ষার্থীর তলিকা</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children">
                         <a href="#" style="color:#030303">পরীক্ষার ফলাফল</a>
                         <ul class="sub-menu">
-                            <li><a href="course.html">পাবলিক পরীক্ষা</a></li>
+                            <li><a href="#">পাবলিক পরীক্ষা</a></li>
                             {{-- <li><a href="course-details.html">Course Details</a></li> --}}
                         </ul>
                     </li>
                     <li>
-                        <a href="#" style="color:#030303">ছবির গ্যালারী</a>
+                        <a href="{{ url('school-notice') }}" style="color:#030303">নোটিশ</a>
+                    </li>
+                    <li>
+                        <a href="{{ url('gallery') }}" style="color:#030303">ছবির গ্যালারী</a>
                     </li>
                     {{-- <li class="menu-item-has-children">
                         <a href="#" style="color:#ffffff">Pages</a>
@@ -232,7 +163,7 @@
                         </ul>
                     </li> --}}
                     <li>
-                        <a href="contact.html" style="color:#030303">যোগাযোগ</a>
+                        <a href="contact-us" style="color:#030303">যোগাযোগ</a>
                     </li>
                 </ul>
             </div>
@@ -288,7 +219,7 @@
                     <div class="row align-items-center justify-content-between">
                         <div class="col-auto" style="margin-left:20px">
                             <div class="header-logo" id="header-logo">
-                                <a href="index.html"><img src="{{ asset($school_contents->school_logo) }}" style="height:70px;border-radius:50%" alt="Edura"></a><br>
+                                <a href="{{ url('/') }}"><img src="{{ asset($school_contents->school_logo) }}" style="height:70px;border-radius:50%" alt="Edura"></a><br>
                             </div>
                         </div>
                         
@@ -296,39 +227,42 @@
                             <nav class="main-menu d-none d-lg-inline-block">
                                 <ul>
                                     <li >
-                                        <a href="index.html" style="color:#ffffff">হোম</a>
+                                        <a href="{{ url('/') }}" style="color:#ffffff">হোম</a>
                                         
                                     </li>
                                     <li class="menu-item-has-children">
                                         <a href="#" style="color:#ffffff">পরিচিতি</a>
                                         <ul class="sub-menu">
-                                            <li><a href="course.html">এক নজরে পরিচিতি </a></li>
-                                            <li><a href="course-details.html">সংক্ষিপ্ত ইতিহাস </a></li>
+                                            <li><a href="{{ url('about-school') }}">এক নজরে পরিচিতি </a></li>
+                                            {{-- <li><a href="course-details.html">সংক্ষিপ্ত ইতিহাস </a></li> --}}
                                         </ul>
                                     </li>
                                     <li class="menu-item-has-children">
                                         <a href="#" style="color:#ffffff">জনবল </a>
                                         <ul class="sub-menu">
-                                            <li><a href="course.html">শিক্ষক শিক্ষিকা</a></li>
-                                            <li><a href="course-details.html">অন্যান্য কর্মচারী</a></li>
+                                            <li><a href="{{ url('school-teachers') }}">শিক্ষক শিক্ষিকা</a></li>
+                                            <li><a href="#">অন্যান্য কর্মচারী</a></li>
                                         </ul>
                                     </li>
                                     <li class="menu-item-has-children">
                                         <a href="#" style="color:#ffffff">শিক্ষার্থী</a>
                                         <ul class="sub-menu">
-                                            <li><a href="course.html">অধ্যয়নরত শিক্ষার্থীর সংখ্যা</a></li>
-                                            <li><a href="course-details.html">অধ্যয়নরত শিক্ষার্থীর তলিকা</a></li>
+                                            <li><a href="#">অধ্যয়নরত শিক্ষার্থীর সংখ্যা</a></li>
+                                            <li><a href="#">অধ্যয়নরত শিক্ষার্থীর তলিকা</a></li>
                                         </ul>
                                     </li>
                                     <li class="menu-item-has-children">
                                         <a href="#" style="color:#ffffff">পরীক্ষার ফলাফল</a>
                                         <ul class="sub-menu">
-                                            <li><a href="course.html">পাবলিক পরীক্ষা</a></li>
+                                            <li><a href="#">পাবলিক পরীক্ষা</a></li>
                                             {{-- <li><a href="course-details.html">Course Details</a></li> --}}
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="#" style="color:#ffffff">ছবির গ্যালারী</a>
+                                        <a href="{{ url('school-notice') }}" style="color:#ffffff">নোটিশ</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url('gallery') }}" style="color:#ffffff">ছবির গ্যালারী</a>
                                     </li>
                                     {{-- <li class="menu-item-has-children">
                                         <a href="#" style="color:#ffffff">Pages</a>
@@ -358,7 +292,7 @@
                                         </ul>
                                     </li> --}}
                                     <li>
-                                        <a href="contact.html" style="color:#ffffff">যোগাযোগ</a>
+                                        <a href="{{ url('contact-us') }}" style="color:#ffffff">যোগাযোগ</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -404,6 +338,9 @@ Hero Area
         <div class="widget-area">
             <div class="container">
                 <div class="row justify-content-between">
+                    @php
+                        $address = DB::table('addresses')->first();
+                    @endphp
                     <div class="col-md-6 col-xxl-3 col-xl-3">
                         <div class="widget footer-widget">
                             <div class="th-widget-about">
@@ -413,84 +350,55 @@ Hero Area
                                 {{-- <p class="about-text">Continually optimize backward manufactured products whereas communities negotiate life compelling alignments</p> --}}
                                 <div class="th-social">
                                     <h6 class="title text-white">FOLLOW US ON:</h6>
-                                    <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="https://www.twitter.com/"><i class="fab fa-twitter"></i></a>
-                                    <a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
-                                    <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
-                                    <a href="https://www.skype.com/"><i class="fab fa-skype"></i></a>
+                                    <a target="__blank" href="{{ $address->school_facebook_link }}"><i class="fab fa-facebook-f"></i></a>
+                                    {{-- <a href="https://www.twitter.com/"><i class="fab fa-twitter"></i></a> --}}
+                                    <a target="__blank" href="{{ $address->school_linkedin_link }}"><i class="fab fa-linkedin-in"></i></a>
+                                    <a target="__blank" href="{{ $address->school_youtube_link }}"><i class="fab fa-youtube"></i></a>
+                                    {{-- <a href="https://www.skype.com/"><i class="fab fa-skype"></i></a> --}}
                                 </div>
                             </div>
                         </div>
                     </div>
+                    
                     <div class="col-md-6 col-xl-auto">
                         <div class="widget widget_nav_menu footer-widget">
-                            <h3 class="widget_title">Quick Links</h3>
+                            <h3 class="widget_title">কিছু লিংক</h3>
                             <div class="menu-all-pages-container">
                                 <ul class="menu">
-                                    <li><a href="course.html">Life Coach</a></li>
-                                    <li><a href="course.html">Business Coach</a></li>
-                                    <li><a href="course.html">Health Coach</a></li>
-                                    <li><a href="course.html">Development</a></li>
-                                    <li><a href="course.html">Web Design</a></li>
-                                    <li><a href="course.html">SEO Optimize</a></li>
+                                    <li><a href="{{ url('contact-us') }}">যোগাযোগ</a></li>
+                                    <li><a href="{{ url('about-school') }}">এক নজরে পরিচিতি</a></li>
+                                    <li><a href="{{ url('school-teachers') }}">শিক্ষক শিক্ষিকা</a></li>
+                                    <li><a href="contact.html">অধ্যয়নরত শিক্ষার্থীর তলিকা</a></li>
+                                    <li><a href="{{ url('gallery') }}">ছবির গ্যালারী</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-xl-auto">
-                        <div class="widget widget_nav_menu footer-widget">
-                            <h3 class="widget_title">Our Courses</h3>
-                            <div class="menu-all-pages-container">
-                                <ul class="menu">
-                                    <li><a href="course-details.html">Health Course</a></li>
-                                    <li><a href="course-details.html">Web Development</a></li>
-                                    <li><a href="course-details.html">UI/UX Design</a></li>
-                                    <li><a href="course-details.html">Life Style Course</a></li>
-                                    <li><a href="course-details.html">Digital Marketing</a></li>
-                                    <li><a href="course-details.html">Graphics Design</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-xl-auto">
-                        <div class="widget widget_nav_menu footer-widget">
-                            <h3 class="widget_title">Resources</h3>
-                            <div class="menu-all-pages-container">
-                                <ul class="menu">
-                                    <li><a href="contact.html">Community</a></li>
-                                    <li><a href="contact.html">Support</a></li>
-                                    <li><a href="contact.html">Video Guides</a></li>
-                                    <li><a href="contact.html">Documentation</a></li>
-                                    <li><a href="contact.html">Security</a></li>
-                                    <li><a href="contact.html">Template</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                    
                     <div class="col-md-6 col-xxl-3 col-xl-3">
                         <div class="widget widget_contact footer-widget">
-                            <h3 class="widget_title">Get in touch!</h3>
-                            <p class="contact-text">Fusce varius, dolor tempor interdum tristiquei bibendum service life.</p>
+                            <h3 class="widget_title">যোগাযোগ করুন</h3>
+                            {{-- <p class="contact-text">Fusce varius, dolor tempor interdum tristiquei bibendum service life.</p> --}}
                             <div class="th-widget-contact">
                                 <div class="info-box-wrap">
                                     <div class="info-box_icon">
                                         <i class="fas fa-location-dot"></i>
                                     </div>
                                     <p class="info-box_text">
-                                        147/I, Green Road, Gulshan Avenue, Panthapath, Dhaka
+                                        {{ $address->school_address }}
                                     </p>
                                 </div>
                                 <div class="info-box-wrap">
                                     <div class="info-box_icon">
                                         <i class="fas fa-envelope"></i>
                                     </div>
-                                    <a href="mailto:info@Edura.com" class="info-box_link">info@edura.com</a>
+                                    <a href="mailto:info@Edura.com" class="info-box_link">{{ $address->school_email }}</a>
                                 </div>
                                 <div class="info-box-wrap">
                                     <div class="info-box_icon">
                                         <i class="fas fa-phone"></i>
                                     </div>
-                                    <a href="tel:+11234567890" class="info-box_link">+256 214 203 215</a>
+                                    <a href="#" class="info-box_link">{{ $address->school_phone }}</a>
                                 </div>
                             </div>
                         </div>

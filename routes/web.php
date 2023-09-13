@@ -5,6 +5,12 @@ use App\Http\Controllers\admin\adminProfileController;
 use App\Http\Controllers\admin\auth\authController;
 use App\Http\Controllers\admin\logo\LogoController;
 use App\Http\Controllers\doctor\doctorController;
+use App\Http\Controllers\school\GalleryController;
+use App\Http\Controllers\school\NoticeController;
+use App\Http\Controllers\School\OthersController;
+use App\Http\Controllers\school\SliderController;
+use App\Http\Controllers\school\TeacherController;
+use App\Http\Controllers\SchoolFrontController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -80,9 +86,59 @@ Route::middleware('auth','status_check')->group(function(){
         Route::post('search-logo','SearchLogo')->name('search_logo');
         Route::get('/logo-status-change/{id}','LogoStatusChange');
         Route::get('/delete-logo/{id}','DeleteLogo');
-
         Route::post('upload-school-logo','UploadSchoolLogo')->name('upload_school_logo');
     
     });
+    Route::controller(SliderController::class)->group(function(){
+        Route::get('school-main-slider','SchoolMainSlider');
+        Route::post('insert-main-slider','SchoolMainSliderInsert');
+        Route::get('delete-main-slider/{id}','DeleteMainSlider');
+    });
 
+    Route::controller(NoticeController::class)->group(function(){
+        Route::get('all-notice','AllNotice');
+        Route::post('notice-insert','NoticeInsert');
+        Route::post('notice-search','NoticeSearch');
+        Route::get('notice-status-update/{id}','NoticeStatusUpdate');
+        Route::get('notice-delete/{id}','NoticeDelete');
+    });
+
+    Route::controller(OthersController::class)->group(function(){
+        Route::get('school-introduction','SchoolIntroduction');
+        Route::post('school-introduction-update','SchoolIntroductionUpdate');
+
+        Route::get('headmaster-speech','HeadmasterSpeech');
+        Route::post('headmaster-speech-update','HeadmasterSpeechUpdate');
+        Route::get('address-contact','AddressContact');
+        Route::post('school-address-update','SchoolAddressUpdate');
+        Route::get('get-district/{id}','GetDistrict');
+        Route::get('get-upazila/{id}','GetUpazila');
+    });
+
+    Route::controller(GalleryController::class)->group(function(){
+        Route::get('school-gallery','SchoolGallery');
+        Route::post('school-gallery','SchoolGalleryInsert');
+        Route::get('school-gallery-delete/{id}','SchoolGalleryDelete');
+        // Route::post('school-introduction-update','SchoolIntroductionUpdate');
+    });
+
+    Route::controller(TeacherController::class)->group(function(){
+        Route::get('school-teacher','SchoolTeacher');
+        Route::post('teacher-insert','TeacherInsert');
+        Route::post('search-teacher','SearchTeacher');
+        Route::get('update-teacher-status/{id}','UpdateTeacherStatus');
+        Route::get('get-teacher-info/{id}','GetTeacherInfo');
+        Route::post('update-teacher','UpdateTeacher');
+        Route::get('delete-teacher/{id}','DeleteTeacher');
+    });
+
+});
+
+Route::controller(SchoolFrontController::class)->group(function(){
+    Route::get('contact-us','ContactUs');
+    Route::get('gallery','SchoolGallery');
+    Route::get('school-notice','AllNotice');
+    Route::get('about-school','AboutSchool');
+    Route::get('school-teachers','GetTeachers');
+    Route::get('teacher-profile/{id}','TeacherProfile');
 });

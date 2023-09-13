@@ -9,7 +9,7 @@
     <meta name="author" content="pixelstrap">
     <link rel="icon" href="../assets/images/favicon/favicon.png" type="image/x-icon">
     <link rel="shortcut icon" href="../assets/images/favicon/favicon.png" type="image/x-icon">
-    <title>Sohojogi - @yield('title')</title>
+    <title>{{ env('APP_NAME') }} - @yield('title')</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -25,7 +25,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('public/admin/assets/css/vendors/scrollbar.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('public/admin/assets/css/vendors/animate.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('public/admin/assets/css/vendors/chartist.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('public/admin/assets/css/vendors/prism.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('public/admin/assets/css/vendors/prism.css')}}"> 
     <link rel="stylesheet" type="text/css" href="{{ asset('public/admin/assets/css/vendors/vector-map.css')}}">
     <!-- Bootstrap css-->
     <link rel="stylesheet" type="text/css" href="{{ asset('public/admin/assets/css/vendors/bootstrap.css')}}">
@@ -243,8 +243,17 @@
                     </ul>
                   </li>
                   
-                  <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="file-manager.html"><i data-feather="git-pull-request"> </i><span>File manager</span></a></li>
-                  <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="kanban.html"><i data-feather="monitor"> </i><span>kanban Board</span></a></li>
+                  <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="inbox"></i><span >School Section</span></a>
+                    <ul class="sidebar-submenu">
+                      <li><a  href="school-main-slider">Main Slider</a></li>
+                      <li><a  href="all-notice">Notice Board</a></li>
+                      <li><a  href="school-introduction">About School</a></li>
+                      <li><a  href="headmaster-speech">Headmaster Speech</a></li>
+                      <li><a  href="school-gallery">Gallery</a></li>
+                      <li><a  href="address-contact">Address & Contact</a></li>
+                    </ul>
+                  </li>
+                  <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="school-teacher"><i data-feather="user"> </i><span>Teachers</span></a></li>
                   
                 </ul>
               </div>
@@ -275,7 +284,7 @@
                 </p>
               </div>
               <div class="col-md-6 p-0 footer-right">
-                <p class="mb-0 text-uppercase"><button class="btn btn-dark btn-square py-0 px-2  text-uppercase" data-bs-trigger="hover" data-container="body" data-bs-toggle="popover" data-bs-placement="top" title="MD Mutasim Naib Sumit" data-bs-content="Software Eng. at Incepta Pharmaceutical , mutasimnaibsumit0@gmail.com , 01724698392">Designed & Developed By MD. Mutasim Naib Sumit</button></p>
+                <p class="mb-0 text-uppercase"><button class="btn btn-dark btn-square py-0 px-2  text-uppercase" data-bs-trigger="hover" data-container="body" data-bs-toggle="popover" data-bs-placement="top" title="MD Mutasim Naib" data-bs-content="Software Eng. at Incepta Pharmaceutical , mutasimnaibsumit0@gmail.com , 01724698392">Designed & Developed By MD. Mutasim Naib</button></p>
               </div>
             </div>
           </div>
@@ -295,6 +304,7 @@
     <!-- Sidebar jquery-->
     <script src="{{ asset('public/admin/assets/js/config.js')}}"></script>
     <script src="{{ asset('public/admin/assets/js/sidebar-menu.js')}}"></script>
+    
     <script src="{{ asset('public/admin/assets/js/chart/chartist/chartist.js')}}"></script>
     <script src="{{ asset('public/admin/assets/js/chart/chartist/chartist-plugin-tooltip.js')}}"></script>
     <script src="{{ asset('public/admin/assets/js/chart/apex-chart/apex-chart.js')}}"></script>

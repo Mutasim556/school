@@ -137,7 +137,7 @@ $(document).on("change","#change_status",function(){
                 type: 'error',
                 title: '',
                 text: 'Something went wrong !',
-                showConfirmButton: true,
+                showConfirmButton: true, 
             });
         }
     });
