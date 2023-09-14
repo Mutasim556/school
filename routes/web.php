@@ -9,6 +9,7 @@ use App\Http\Controllers\school\GalleryController;
 use App\Http\Controllers\school\NoticeController;
 use App\Http\Controllers\School\OthersController;
 use App\Http\Controllers\school\SliderController;
+use App\Http\Controllers\school\StudentController;
 use App\Http\Controllers\school\TeacherController;
 use App\Http\Controllers\SchoolFrontController;
 use Illuminate\Support\Facades\Auth;
@@ -132,6 +133,12 @@ Route::middleware('auth','status_check')->group(function(){
         Route::get('delete-teacher/{id}','DeleteTeacher');
     });
 
+    Route::controller(StudentController::class)->group(function(){
+        Route::get('number-of-student','StudentNumber');
+        Route::get('get-student-number/{shift}/{class}/{section}','GetStudentNumber');
+        Route::post('update-student-number','UpdateStudentNumber');
+    });
+
 });
 
 Route::controller(SchoolFrontController::class)->group(function(){
@@ -141,4 +148,5 @@ Route::controller(SchoolFrontController::class)->group(function(){
     Route::get('about-school','AboutSchool');
     Route::get('school-teachers','GetTeachers');
     Route::get('teacher-profile/{id}','TeacherProfile');
+    Route::get('total-students','TotalStudents');
 });

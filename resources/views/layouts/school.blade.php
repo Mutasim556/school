@@ -118,7 +118,7 @@
                     <li class="menu-item-has-children">
                         <a href="#" style="color:#030303">শিক্ষার্থী</a>
                         <ul class="sub-menu">
-                            <li><a href="#">অধ্যয়নরত শিক্ষার্থীর সংখ্যা</a></li>
+                            <li><a href="{{ url('total-students') }}">অধ্যয়নরত শিক্ষার্থীর সংখ্যা</a></li>
                             <li><a href="#">অধ্যয়নরত শিক্ষার্থীর তলিকা</a></li>
                         </ul>
                     </li>
@@ -247,7 +247,7 @@
                                     <li class="menu-item-has-children">
                                         <a href="#" style="color:#ffffff">শিক্ষার্থী</a>
                                         <ul class="sub-menu">
-                                            <li><a href="#">অধ্যয়নরত শিক্ষার্থীর সংখ্যা</a></li>
+                                            <li><a href="{{ url('total-students') }}">অধ্যয়নরত শিক্ষার্থীর সংখ্যা</a></li>
                                             <li><a href="#">অধ্যয়নরত শিক্ষার্থীর তলিকা</a></li>
                                         </ul>
                                     </li>

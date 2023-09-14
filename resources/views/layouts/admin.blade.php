@@ -254,6 +254,11 @@
                     </ul>
                   </li>
                   <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="school-teacher"><i data-feather="user"> </i><span>Teachers</span></a></li>
+                  <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="inbox"></i><span >Student Section</span></a>
+                    <ul class="sidebar-submenu">
+                      <li><a  href="number-of-student">Num. of Students</a></li>
+                    </ul>
+                  </li>
                   
                 </ul>
               </div>

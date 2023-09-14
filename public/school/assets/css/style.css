@@ -81,6 +81,7 @@ Version: 1.0.0
   --success-color: #28a745;
   --error-color: #dc3545;
   --border-color: #ecf1f9;
+  --border-color2:rgb(121, 123, 128)9;
   --title-font: 'Jost', sans-serif;
   --body-font: 'Roboto', sans-serif;
   --icon-font: "Font Awesome 6 Pro";
@@ -189,10 +190,15 @@ th {
   font-weight: 700;
   color: var(--title-color);
 }
-
-td,
+tr{
+  border-bottom:1px solid gray;
+}
+td{
+  border: 1px solid gray;
+  padding: 9px 12px;
+}
 th {
-  border: 1px solid var(--border-color);
+  border: 1px solid gray;
   padding: 9px 12px;
 }
 

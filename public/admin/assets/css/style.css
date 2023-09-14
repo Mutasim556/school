@@ -9305,7 +9305,7 @@ input[type="file"] {
 }
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
-    background-color: var(--theme-deafult);
+    background-color: #090b51;
 }
 .nav i {
     margin-right: 10px;

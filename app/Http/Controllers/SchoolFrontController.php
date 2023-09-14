@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\AboutSchool;
 use App\Models\Gallery;
+use App\Models\StudentNumber;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -37,5 +38,9 @@ class SchoolFrontController extends Controller
     public function TeacherProfile(){
         $teacher = Teacher::where('teacher_status','Active')->where('teacher_delete',0)->join('districts','teachers.teacher_district','districts.id')->join('divisions','teachers.teacher_division','divisions.id')->join('upazilas','teachers.teacher_upazila','upazilas.id')->select('teachers.*','divisions.bn_name as division','divisions.id as division_id','districts.bn_name as district','districts.id as district_id','upazilas.bn_name as upazila','upazilas.id as upazila_id')->where('teacher_id',request()->id)->first();
         return view('profile_details',compact('teacher'));
+    }
+    public function TotalStudents(){
+        
+        return view('total_students');
     }
 }
